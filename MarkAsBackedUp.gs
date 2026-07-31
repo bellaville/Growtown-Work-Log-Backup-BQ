@@ -60,6 +60,8 @@ function markWorkOrdersApproved() {
   workOrderSheet
     .getRange(startRow, approvalColumn, approvalValues.length, 1)
     .setValues(approvalValues);
+
+    console.log(approvalValues); // log records that were marked as backed up for traceability
 }
 
 function markBackedUp(sourceSheetName, SheetName) {
@@ -104,7 +106,7 @@ function markBackedUp(sourceSheetName, SheetName) {
     .getValues();
 
   // Get current values from backed up column
-  const BackedUpValues = editSheet
+  const backedUpValues = editSheet
     .getRange(startRow, BackedUpColumn, LastRow - startRow + 1, 1)
     .getValues();
 
@@ -112,14 +114,16 @@ function markBackedUp(sourceSheetName, SheetName) {
   for (let i = 0; i < IpOpData.length; i++) {
     const id = IpOpData[i][IdColumn - 1];
     if (sourceIdSet.has(String(id))) {
-      BackedUpValues[i][0] = true;
+      backedUpValues[i][0] = true;
     }
   }
 
   // Write updated backed up column back in one batch
   editSheet
-    .getRange(startRow, BackedUpColumn, BackedUpValues.length, 1)
-    .setValues(BackedUpValues);
+    .getRange(startRow, BackedUpColumn, backedUpValues.length, 1)
+    .setValues(backedUpValues);
+
+    console.log(backedUpValues); // log records that were marked as backed up for traceability
 }
 
 
