@@ -7,7 +7,7 @@ function markWorkOrdersApproved() {
 
   const sourceIdColumn = 1;    // Column in source sheet with work order IDs (A=1, B=2, etc.)
   const workOrderIdColumn = 1; // Column in work order sheet containing the work order ID
-  const approvalColumn = 19;    // Column in work order sheet where "Approved" should be written
+  const approvalColumn = 20;    // Column in work order sheet where "Approved" should be written
   const startRow = 2;          // Data starts on row 2 if row 1 is headers
   // ==================
 
