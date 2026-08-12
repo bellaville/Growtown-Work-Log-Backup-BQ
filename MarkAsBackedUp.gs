@@ -53,6 +53,7 @@ function markWorkOrdersApproved() {
     const workOrderId = workOrderData[i][workOrderIdColumn - 1];
     if (sourceIdSet.has(String(workOrderId))) {
       approvalValues[i][0] = 'Approved';
+      console.log(workOrderId + " marked as Approved (backed up)") // log for traceability
     }
   }
 
@@ -61,7 +62,6 @@ function markWorkOrdersApproved() {
     .getRange(startRow, approvalColumn, approvalValues.length, 1)
     .setValues(approvalValues);
 
-    console.log(approvalValues); // log records that were marked as backed up for traceability
 }
 
 function markBackedUp(sourceSheetName, SheetName) {
@@ -115,6 +115,7 @@ function markBackedUp(sourceSheetName, SheetName) {
     const id = IpOpData[i][IdColumn - 1];
     if (sourceIdSet.has(String(id))) {
       backedUpValues[i][0] = true;
+      console.log(id + " marked as true (backed up)")
     }
   }
 
@@ -123,7 +124,7 @@ function markBackedUp(sourceSheetName, SheetName) {
     .getRange(startRow, BackedUpColumn, backedUpValues.length, 1)
     .setValues(backedUpValues);
 
-    console.log(backedUpValues); // log records that were marked as backed up for traceability
+    
 }
 
 
