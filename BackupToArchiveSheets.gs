@@ -13,7 +13,13 @@ function copyTableRows(sheetName) {
     throw new Error('A valid sheetName parameter is required.');
   }
 
-  const sourceSpreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  var sourceSpreadsheet;
+
+  if (sheetName == "LotChanges") {
+    sourceSpreadsheet = SpreadsheetApp.openById('1DxZwMjdRuZDvLosWHeEsjEwAqX0Qzfmr1W0J6zlJzQU');
+  } else {
+    sourceSpreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  }
 
   const destinationSpreadsheet =
     SpreadsheetApp.openById(DESTINATION_SPREADSHEET_ID);
@@ -105,4 +111,8 @@ function backupInputs() {
 
 function backupOutputs() {
   copyTableRows("Outputs");
+}
+
+function backupLotChanges() {
+  copyTableRows("LotChanges");
 }
