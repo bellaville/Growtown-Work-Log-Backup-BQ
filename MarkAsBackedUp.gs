@@ -42,7 +42,7 @@ function markBackedUp(sourceSpreadSheet, startRow, sourceSheetName, sourceIdCol,
     const id = IpOpData[i][editIdCol - 1];
     if (sourceIdSet.has(String(id))) {
       backedUpValues[i][0] = backedUpValue;
-      console.log(id + " marked as backed up)")
+      console.log(id + " marked as backed up")
     }
   }
 
@@ -65,5 +65,9 @@ function markInputsBackedUp() {
 
 function markOutputsBackedUp() {
   markBackedUp("Work_Log", 2, "Outputs for BQ", 1, "Outputs", 1, 11, true);
+}
+
+function markOrderFormsBackedUp(){
+  markBackedUp("Work_Log", 2, "Order Forms for BQ", 1, "Order Forms", 1, 14, true);
 }
 
