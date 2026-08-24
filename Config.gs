@@ -1,6 +1,6 @@
 props = PropertiesService.getScriptProperties();
 
-const SHEET_IDS = {
+const ARCHIVE_SHEET_IDS = {
   "Work_Orders" : props.getProperty('WORK_ORDERS'),
   "Inputs" : props.getProperty('INPUTS'),
   "Outputs" : props.getProperty('OUTPUTS'),
@@ -13,4 +13,8 @@ const SOURCE_SHEET_NAMES = {
   "Outputs" : "Outputs for BQ",
   "LotChanges" : "NewLotRequests"
 };
+
+const SPREADSHEETS = {
+  "Work_Log" : SpreadsheetApp.getActiveSpreadsheet(),
+}
 
